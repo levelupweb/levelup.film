@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Socials from '../socials/Socials.js'
 import './footer.css'
 
 export default class Footer extends Component {
@@ -7,7 +8,7 @@ export default class Footer extends Component {
 			return (
 				<div className="footer">
 					<div className="footer-wrapper">
-						<p className="spacing">Created with love</p>
+						<p className="spacing">Создано с любовью</p>
 					</div>
 				</div>
 			);
@@ -17,9 +18,10 @@ export default class Footer extends Component {
 					<div className="footer onPage">
 						<div className="footer-wrapper">
 							<div className="left">
-								Created in <a href="http://web.levelupworlds.com">Levelup Web</a> with love
+								Создано в <a href="http://web.levelupworlds.com" target="_blank">Levelup Web</a> с любовью
 							</div>
 							<div className="right">
+								<Socials />
 							</div>
 						</div>
 					</div>

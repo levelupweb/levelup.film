@@ -26,24 +26,37 @@ class Burger extends Component {
 			<div className="burger">
 				<p className="burger-revealer spacing"
 					onClick={() => { this.revealNavigation() }}>
-					{revealed ? "Close Menu" : "Open Menu"}
+					{revealed ? "Закрыть меню" : "Открыть меню"}
 				</p>
 				<nav className={revealed ? "navigation revealed" : "navigation"}>
 					<ul>
-						<a target="_blank"
-							rel="noopener noreferrer"
-							href="https://github.com/kv9991/levelup.boilerplate.static"
-							onClick={() => {
-								this.revealNavigation();
-							}} >
-							<li>Github <i className="fa fa-github"></i></li>
-						</a>
 						<Link
 							to="/about"
 							onClick={() => {
 								this.revealNavigation();
 							}} >
-							<li>About boilerplate</li>
+							<li>О нас</li>
+						</Link>
+						<Link
+							to="/projects"
+							onClick={() => {
+								this.revealNavigation();
+							}} >
+							<li>Проекты</li>
+						</Link>
+						<Link
+							to="/partner"
+							onClick={() => {
+								this.revealNavigation();
+							}} >
+							<li>Сотрудничество</li>
+						</Link>
+						<Link
+							to="/conctact"
+							onClick={() => {
+								this.revealNavigation();
+							}} >
+							<li>Контакты</li>
 						</Link>
 					</ul>
 				</nav>

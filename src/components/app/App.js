@@ -2,9 +2,13 @@ import React from "react";
 import SwitchCSSTransitionGroup from "switch-css-transition-group";
 import { withRouter } from "react-router";
 
+
 // components
 import Index from "../../pages/index/index.js";
 import About from "../../pages/about/About.js";
+import Partner from "../../pages/partner/Partner.js";
+import Contact from "../../pages/contact/Contact.js";
+import Projects from "../../pages/projects/Projects.js";
 import notFound from "../../pages/notFound/notFound.js";
 import RouteDefaultContainer from "../../containers/RouteDefaultContainer.js";
 import RoutePageContainer from "../../containers/RoutePageContainer.js";
@@ -21,6 +25,9 @@ const App = props => {
 			>
 				<RouteDefaultContainer exact path="/" component={Index} />
 				<RoutePageContainer path="/about" component={About} />
+				<RoutePageContainer path="/partner" component={Partner} />
+				<RoutePageContainer path="/contact" component={Contact} />
+				<RoutePageContainer path="/projects" component={Projects} />
 				<RouteDefaultContainer component={notFound} />
 			</SwitchCSSTransitionGroup>
 		</div>

@@ -1,33 +1,30 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from 'react-router-dom'
 import "./about.css";
 
 const About = props => {
 	return (
 		<div className="page-about page">
 			<Helmet>
-        <title>About This Boilerplate</title>
-        <meta name="description" content="About Boilerplate" />
-    		<meta name="keywords" content="react, express, es6, javascript, webpack" />
+        <title>О компании Levelup Film</title>
+        <meta name="description" content="Levelup Film - это профессиональная фото и видео съемка" />
+    		<meta name="keywords" content="фото, видео съемка, профессиональная съемка, фотография" />
     		<meta name="author" content="Levelup Web" />
   			<meta name="robots" content="index, follow" />
   			<meta name="revisit-after" content="1 days" />
-  			<meta property="og:type" content="website" />
-    		<meta property="og:site_name" content="Levelup Static Boilerplate" />
-    		<meta property="og:title" content="Levelup Boilerplate" />
-    		<meta property="og:description" content="This is an exprensive boilerplate for creating rich sites" />
-    	</Helmet>
+  		</Helmet>
 			<div className="block">
 				<div className="block-title left" id="about-us">
 					<h5 className="super title">
-						About This Boilerplate
+						О компании
 					</h5>
-					<p className="description">What's this?</p>
+					<p className="description">Чем мы занимаемся?</p>
 				</div>
 			</div>
 			<div className="block">
 				<p className="primary">
-					An boilerplate for creating static web applicatios. Based on create-react-app. This boilerplate includes:
+					Levelup Film - это профессиональная студия фото и видео съёмки. В нашу команду входят только специалисты своих областей
 				</p>
 			</div>
 			<div className="block">
@@ -37,7 +34,7 @@ const About = props => {
 							<i className="fa fa-check"></i>
 						</div>
 						<div className="content">
-							Default CSS Theme
+							Фотосъёмка
 						</div>
 					</div>
 					<div className="item">
@@ -45,7 +42,7 @@ const About = props => {
 							<i className="fa fa-check"></i>
 						</div>
 						<div className="content">
-							React
+							Видеосъёмка 4K
 						</div>
 					</div>
 					<div className="item">
@@ -53,7 +50,7 @@ const About = props => {
 							<i className="fa fa-check"></i>
 						</div>
 						<div className="content">
-							ES6
+							Аэросъемка
 						</div>
 					</div>
 					<div className="item">
@@ -61,44 +58,21 @@ const About = props => {
 							<i className="fa fa-check"></i>
 						</div>
 						<div className="content">
-							Nice folder structure
-						</div>
-					</div>
-					<div className="item">
-						<div className="icon">
-							<i className="fa fa-check"></i>
-						</div>
-						<div className="content">
-							Npm scripts for your workflow
-						</div>
-					</div>
-					<div className="item">
-						<div className="icon">
-							<i className="fa fa-check"></i>
-						</div>
-						<div className="content">
-							Gulp
-						</div>
-					</div>
-					<div className="item">
-						<div className="icon">
-							<i className="fa fa-check"></i>
-						</div>
-						<div className="content">
-							ESLint
+							Монтаж и цветокоррекция
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="block">
 				<p className="primary">
-					Start Editing this project with this page. If you want to become an contributor or read some instructions, follow these links:	
+					Начните работать с нами, написав нам письмо. Или свяжитесь с нами через наши контактные данные.
 				</p>
 			</div>
 			<div className="block">
 				<div className="button-group">
-					<a href="https://github.com/kv9991/levelup.boilerplate.static" className="button">Github <i className="fa fa-github"></i></a>
-					<button className="button disabled">Story Book (Soon) <i className="fa fa-book"></i></button>
+					<Link to="/contact">
+						<button className="button">Связаться <i className="fa fa-angle-right"></i></button>
+					</Link>
 				</div>	
 			</div>
 		</div>
