@@ -12,7 +12,7 @@ class Burger extends Component {
 
 	revealNavigation() {
 		document.querySelector('.site-content').classList.toggle('with-menu');
-		
+
 		this.setState({
 			revealed: !this.state.revealed
 		});
@@ -63,7 +63,7 @@ class Burger extends Component {
 							<li>Сотрудничество</li>
 						</Link>
 						<Link
-							to="/conctact"
+							to="/contact"
 							onClick={() => {
 								this.revealNavigation();
 							}} >
