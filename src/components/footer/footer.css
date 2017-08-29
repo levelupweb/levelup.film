@@ -30,8 +30,7 @@
   justify-content: space-between;
   align-items: center;
   position: static;
-  border-top:1px solid #e1e1e1;
-  padding:13px 8px;
+  padding:13px 0;
   padding-bottom:0;
   width:100%;
 }

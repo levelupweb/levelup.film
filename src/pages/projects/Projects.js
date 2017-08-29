@@ -1,7 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom'
+import { projects } from '../../db.js'
+import Project from './Project.js';
 import "./projects.css";
+
+const renderProjects = projects => 
+	<div className="projects">
+		{projects.map((item, i) => 
+			<Project {...item} key={i} />
+		)}
+	</div>
 
 const Projects = props => {
 	return (
@@ -25,6 +34,14 @@ const Projects = props => {
 			<div className="block">
 				<p className="primary">
 					В этом разделе вы сможете найти наши последние работы, над которыми работала наша команда
+				</p>
+			</div>
+			<div className="block">
+				{renderProjects(projects)}
+			</div>
+			<div className="block">
+				<p className="primary">
+					Данный список постоянно дополняется. Если вы хотите, чтобы мы для вас сняли видео и также разместили его здесь, свяжитесь с нами и мы сможем обо всём договориться
 				</p>
 			</div>
 			<div className="block">

@@ -42,8 +42,8 @@ const Index = props => {
 						</div>
 						<div className="jumbotron-actions">
 							<div className="button-group" style={{justifyContent: 'center'}}>
-								<Link to="/career"><button className="button ghost">Работать вместе <i className="fa fa-location-arrow"></i></button></Link>
-								<Link to="/career"><button className="button ghost">Наши работы <i className="fa fa-angle-double-right"></i></button></Link>
+								<Link to="/contact"><button className="button ghost">Работать вместе <i className="fa fa-location-arrow"></i></button></Link>
+								<Link to="/projects"><button className="button ghost">Наши работы <i className="fa fa-angle-double-right"></i></button></Link>
 							</div>
 						</div>
 					</div>

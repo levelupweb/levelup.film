@@ -94,7 +94,6 @@ const Contact = props => {
 				</div>
 			</div>
 			<div className="block">
-				<Socials />
 				<div className="button-group" style={{marginTop: 15 + 'px'}}>
 					<Modal options={contactModalConfiguration} render={renderContactForm()}>
 						<button className="button">Написать нам</button>
