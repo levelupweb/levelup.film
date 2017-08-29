@@ -25,7 +25,7 @@ const Index = props => {
 					<img src={config.staticURL + "/img/logo-default.png"} alt="Levelup Worlds"/>	
 				</a>
 			</div>
-			<section className="fullpage center first inverted">
+			<section className="fullpage center first inverted" style={{border:0}}>
 				<div className="container text">
 					<div className="blocks">
 					<div className="block">

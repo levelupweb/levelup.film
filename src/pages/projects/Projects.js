@@ -24,7 +24,7 @@ const Projects = props => {
 			</div>
 			<div className="block">
 				<p className="primary">
-					Текст...	
+					В этом разделе вы сможете найти наши последние работы, над которыми работала наша команда
 				</p>
 			</div>
 			<div className="block">

@@ -6,11 +6,12 @@ import './modal.css'
 class Modal extends Component {
 	constructor(props) {
 		super(props);
+		this.reveal = this.reveal.bind(this)
 		this.state = {
 			isRevealed: false
 		}
 	}
-	reveal = () => {
+	reveal() {
 		this.setState({
 			isRevealed: !this.state.isRevealed
 		})
@@ -25,7 +26,7 @@ class Modal extends Component {
 				<div className={isRevealed ? 'Modal open' : 'Modal'}>
 					<div className="Modal-wrapper inverted">
 						<div className="Modal-closer">
-							<button className="button ghost" onClick={this.reveal}>Закрыть</button>
+							<button className="button ghost" onClick={() => {this.reveal()}}>Закрыть</button>
 						</div>
 						<div className="Modal-title">
 							<div className="block">

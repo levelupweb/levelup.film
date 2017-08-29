@@ -34,7 +34,7 @@ class ContactForm extends React.Component {
 			hidden={item.hidden || false} />
 		)
 	}
-	updateForm = (key, fieldName, value) => {
+	updateForm(key, fieldName, value) {
 		this.setState({
 			message: {
 				...this.state.message,
@@ -58,7 +58,7 @@ class ContactForm extends React.Component {
 		return (
 			<form className={isFluid && 'fluid'} ref={(e) => {this.form = e}}>
 				{this.renderFields(fields)}
-				<button className="button" onClick={(e) => {this.submitForm(e, generateMailHTML(message))}}>Отправить</button>
+				<button className="button ghost" onClick={(e) => {this.submitForm(e, generateMailHTML(message))}}>Отправить</button>
 				<NotificationContainer />
 			</form>
 		)

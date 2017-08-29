@@ -2,7 +2,43 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 import config from '../../../config.js'
+import Socials from '../../components/socials/Socials.js'
+import ContactForm from '../../components/contactForm/ContactForm.js'
+import Modal from '../../components/modal/Modal.js'
 import "./contact.css";
+
+
+const contactFormFields = [{
+		fieldName: 'Имя клиента',
+		placeholder: 'Ваше имя',
+		name: 'userName',
+		type: 'text'
+	}, {
+		fieldName: 'E-Mail',
+		placeholder: 'Ваш E-Mail',
+		name: 'userEmail',
+		type: 'text'
+	}, {
+		fieldName: 'Мобильный телефон',
+		placeholder: 'Контактный телефон',
+		name: 'userPhone',
+		type: 'text'
+	}, {
+		fieldName: 'Сообщение',
+		placeholder: 'Ваше сообщение',
+		name: 'userMessage',
+		type: 'textarea'
+} ]
+
+const renderContactForm = () => <ContactForm 
+	isFluid={true} 
+	fields={contactFormFields} />
+
+const contactModalConfiguration = {
+	title: 'Обратная связь',
+	description: 'Сообщение',
+	content: 'С вашими деловыми предложениями вы можете обращаться при помощи данной формы обратной связи'
+}
 
 const Contact = props => {
 	return (
@@ -25,9 +61,10 @@ const Contact = props => {
 			</div>
 			<div className="block">
 				<p className="primary">
-					Текст...	
+					У вас есть деловое предложение? Свяжитесь с нами при помощи любого доступного вам способа, используя нашу контактную информацию
 				</p>
 			</div>
+			
 			<div className="block">
 				<div className="list">
 					<div className="item">
@@ -57,10 +94,11 @@ const Contact = props => {
 				</div>
 			</div>
 			<div className="block">
-				<div className="button-group">
-					<Link to="/contact">
-						<button className="button">Связаться <i className="fa fa-angle-right"></i></button>
-					</Link>
+				<Socials />
+				<div className="button-group" style={{marginTop: 15 + 'px'}}>
+					<Modal options={contactModalConfiguration} render={renderContactForm()}>
+						<button className="button">Написать нам</button>
+					</Modal>
 				</div>	
 			</div>
 		</div>
