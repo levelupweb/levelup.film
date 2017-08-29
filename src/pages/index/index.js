@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import { Helmet } from "react-helmet";
 import config from "../../../config.js"
+import BackgroundVideo from '../../components/backgroundVideo/BackgroundVideo.js'
 import "./index.css";
 
 const Index = props => {
@@ -15,24 +16,34 @@ const Index = props => {
   			<meta name="robots" content="index, follow" />
   			<meta name="revisit-after" content="1 days" />
   		</Helmet>
-			<section className="fullpage center first">
+  		<div className="video-background">
+  			<BackgroundVideo />
+			</div>
+			<div className="logo">
+				<a href="#" target="_blank">
+					<img src={config.staticURL + "/img/logo-default.png"} alt="Levelup Worlds"/>	
+				</a>
+			</div>
+			<section className="fullpage center first inverted">
 				<div className="container text">
 					<div className="blocks">
 					<div className="block">
 					<div className="jumbotron">
 						<div className="jumbotron-title">
-							<h3 className="super title">
-								<img src={config.staticURL + "/img/logo-film.png"} alt="Levelup Film Logo"/>
+							<h2 className="super title">
 								Levelup Film
-							</h3>
+							</h2>
 						</div>
 						<div className="jumbotron-content">
 							<p className="primary">
-								Наша команда занимается профессиональной фото и видео съёмкой
+								Привет! Мы - профессиональная команда, которая специализируется на создании качественных видеороликов самых разных направлений. Мы снимаем клипы, рекламные ролики, интервью и многое другое
 							</p>
 						</div>
 						<div className="jumbotron-actions">
-							<Link to="/career"><button className="button">Связаться</button></Link>
+							<div className="button-group" style={{justifyContent: 'center'}}>
+								<Link to="/career"><button className="button ghost">Работать вместе</button></Link>
+								<Link to="/career"><button className="button ghost">Наши работы</button></Link>
+							</div>
 						</div>
 					</div>
 					</div>

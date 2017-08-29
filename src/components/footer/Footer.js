@@ -6,9 +6,9 @@ export default class Footer extends Component {
 	render() {
 		if(!this.props.page) {
 			return (
-				<div className="footer">
+				<div className="footer inverted">
 					<div className="footer-wrapper">
-						<p className="spacing">Создано с любовью</p>
+						<p className="spacing">Создано в <a href="http://web.levelupworlds.com" target="_blank">Levelup Web</a> с любовью</p>
 					</div>
 				</div>
 			);
