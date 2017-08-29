@@ -22,7 +22,7 @@ const Index = props => {
 			</div>
 			<div className="logo">
 				<a href="#" target="_blank">
-					<img src={config.staticURL + "/img/logo-default.png"} alt="Levelup Worlds"/>	
+					<img src={config.staticURL + "/img/logo-default-inverted.png"} alt="Levelup Worlds"/>	
 				</a>
 			</div>
 			<section className="fullpage center first inverted" style={{border:0}}>
@@ -31,9 +31,9 @@ const Index = props => {
 					<div className="block">
 					<div className="jumbotron">
 						<div className="jumbotron-title">
-							<h5 className="super title">
-								LEVELUP FILM
-							</h5>
+							<h3 className="super title">
+								Levelup Film
+							</h3>
 						</div>
 						<div className="jumbotron-content">
 							<p className="primary">
