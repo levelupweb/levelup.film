@@ -4,6 +4,8 @@
 /node_modules
 # testing
 /coverage
+config.js
+/dist/bundle.js
 
 # production
 /build
