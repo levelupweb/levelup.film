@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import { Helmet } from "react-helmet";
 import config from "../../../config.js"
+import Socials from '../../components/socials/Socials.js'
 import BackgroundVideo from '../../components/backgroundVideo/BackgroundVideo.js'
 import "./index.css";
 
@@ -30,9 +31,9 @@ const Index = props => {
 					<div className="block">
 					<div className="jumbotron">
 						<div className="jumbotron-title">
-							<h2 className="super title">
-								Levelup Film
-							</h2>
+							<h5 className="super title">
+								LEVELUP FILM
+							</h5>
 						</div>
 						<div className="jumbotron-content">
 							<p className="primary">
@@ -41,11 +42,14 @@ const Index = props => {
 						</div>
 						<div className="jumbotron-actions">
 							<div className="button-group" style={{justifyContent: 'center'}}>
-								<Link to="/career"><button className="button ghost">Работать вместе</button></Link>
-								<Link to="/career"><button className="button ghost">Наши работы</button></Link>
+								<Link to="/career"><button className="button ghost">Работать вместе <i className="fa fa-location-arrow"></i></button></Link>
+								<Link to="/career"><button className="button ghost">Наши работы <i className="fa fa-angle-double-right"></i></button></Link>
 							</div>
 						</div>
 					</div>
+					</div>
+					<div className="block" style={{paddingTop:0}}>
+						<Socials />
 					</div>
 					</div>
 				</div>

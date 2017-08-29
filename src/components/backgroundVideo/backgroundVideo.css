@@ -11,7 +11,7 @@
   width:200%!important;
   height:200%!important;
   left:-50%!important;
-  top:-50%!important;
+  top:0%!important;
 }
 .tv .screen {
   position: absolute;
@@ -26,4 +26,10 @@
 }
 .tv .screen.active {
   opacity: 1;
+}
+@media screen and (max-width:555px) {
+  .tv iframe {
+    width:350%!important;
+    height:350%!important;
+  }
 }
