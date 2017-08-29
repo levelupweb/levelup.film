@@ -11,6 +11,8 @@ class Burger extends Component {
 	}
 
 	revealNavigation() {
+		document.querySelector('.site-content').classList.toggle('with-menu');
+		
 		this.setState({
 			revealed: !this.state.revealed
 		});
