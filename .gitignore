@@ -2,7 +2,6 @@
 .env
 # dependencies
 /node_modules
-/dist
 # testing
 /coverage
 
