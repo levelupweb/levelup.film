@@ -34139,7 +34139,7 @@ var Index = function Index(props) {
 			_react2.default.createElement(
 				"a",
 				{ href: "#", target: "_blank" },
-				_react2.default.createElement("img", { src: _config2.default.staticURL + "/img/logo-default.png", alt: "Levelup Worlds" })
+				_react2.default.createElement("img", { src: _config2.default.staticURL + "/img/logo-default-inverted.png", alt: "Levelup Worlds" })
 			)
 		),
 		_react2.default.createElement(
@@ -34161,9 +34161,9 @@ var Index = function Index(props) {
 								"div",
 								{ className: "jumbotron-title" },
 								_react2.default.createElement(
-									"h5",
+									"h3",
 									{ className: "super title" },
-									"LEVELUP FILM"
+									"Levelup Film"
 								)
 							),
 							_react2.default.createElement(
@@ -35290,6 +35290,10 @@ var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(373);
 
+var _api = __webpack_require__(375);
+
+var _api2 = _interopRequireDefault(_api);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BackgroundVideo = function (_React$Component) {
@@ -35301,17 +35305,18 @@ var BackgroundVideo = function (_React$Component) {
   }
 
   (0, _createClass3.default)(BackgroundVideo, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {
-      __webpack_require__(375);
+      var video = new _api2.default("hz-5LijlF8o", "tv", ".tv .screen");
+      video.init();
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "tv" },
-        _react2.default.createElement("div", { className: "screen mute", id: "tv" })
+        'div',
+        { className: 'tv' },
+        _react2.default.createElement('div', { className: 'screen mute', id: 'tv' })
       );
     }
   }]);
@@ -35372,59 +35377,101 @@ exports.push([module.i, ".tv {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 
 "use strict";
 
 
-var tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/player_api';
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var tv;
-var playerDefaults = { autoplay: 0, autohide: 1, modestbranding: 0, rel: 0, showinfo: 0, controls: 0, disablekb: 1, enablejsapi: 0, iv_load_policy: 3 };
-var vid = { 'videoId': 'hz-5LijlF8o', 'startSeconds': 0, 'suggestedQuality': 'hd720' };
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-function onYouTubePlayerAPIReady() {
-  tv = new YT.Player('tv', { events: { 'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange }, playerVars: playerDefaults });
-}
+var _classCallCheck2 = __webpack_require__(23);
 
-function onPlayerReady() {
-  tv.loadVideoById(vid);
-  tv.mute();
-}
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-function onPlayerStateChange(e) {
-  var tv1 = document.getElementById('tv');
+var _createClass2 = __webpack_require__(24);
 
-  if (e.data === 1) {
-    tv1.classList.add('active');
-  } else if (e.data === YT.PlayerState.ENDED) {
-    tv1.classList.remove('active');
-    if (currVid === vid.length - 1) {
-      currVid = 0;
-    } else {
-      currVid++;
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var playerDefaults = {
+  autoplay: 0,
+  autohide: 1,
+  modestbranding: 0,
+  rel: 0,
+  showinfo: 0,
+  controls: 0,
+  disablekb: 1,
+  enablejsapi: 0,
+  iv_load_policy: 3
+};
+
+var Video = function () {
+  function Video(videoId, id, screen) {
+    (0, _classCallCheck3.default)(this, Video);
+
+    this.tv = null;
+    this.screen = screen;
+    this.tvId = id || "tv";
+    this.onStateChange = this.onStateChange.bind(this);
+    this.play = this.play.bind(this);
+    this.createPlayer = this.createPlayer.bind(this);
+    this.rescale = this.rescale.bind(this);
+    this.video = {
+      'videoId': videoId,
+      'startSeconds': 18,
+      'suggestedQuality': 'hd720'
+    };
+  }
+
+  (0, _createClass3.default)(Video, [{
+    key: 'createPlayer',
+    value: function createPlayer(options) {
+      var self = this;
+      this.tv = new YT.Player('tv', { events: {
+          'onReady': this.play,
+          'onStateChange': this.onStateChange
+        }, playerVars: options });
     }
-    tv.loadVideoById(vid);
-  }
-}
+  }, {
+    key: 'play',
+    value: function play() {
+      this.tv.loadVideoById(this.video);
+      this.tv.mute();
+    }
+  }, {
+    key: 'rescale',
+    value: function rescale() {
+      var w = window.innerWidth + 400;
+      var h = window.innerHeight + 400;
+      var screen = document.querySelector(this.screen);
+      var tv1 = document.getElementById(this.tvId);
 
-function vidRescale() {
-  var w = window.innerWidth + 400,
-      h = window.innerHeight + 400;
-  var screen = document.querySelector('.tv .screen');
-  var tv1 = document.getElementById('tv');
+      if (w / h > 16 / 9) {
+        this.tv.setSize(w, w / 16 * 9);
+      } else {
+        this.tv.setSize(h / 9 * 16, h);
+      }
+    }
+  }, {
+    key: 'onStateChange',
+    value: function onStateChange(e) {
+      var tv1 = document.getElementById(this.tvId);
+      if (e.data === 1) {
+        tv1.classList.add('active');
+      } else if (e.data === YT.PlayerState.ENDED) {
+        tv1.classList.remove('active');
+        this.tv.loadVideoById(vid);
+      }
+    }
+  }, {
+    key: 'init',
+    value: function init() {
+      window.onYouTubePlayerAPIReady = this.createPlayer(playerDefaults);
+      this.rescale();
+    }
+  }]);
+  return Video;
+}();
 
-  if (w / h > 16 / 9) {
-    tv.setSize(w, w / 16 * 9);
-  } else {
-    tv.setSize(h / 9 * 16, h);
-  }
-}
-
-window.addEventListener('load', function () {
-  onYouTubePlayerAPIReady();
-  vidRescale();
-});
-window.addEventListener('resize', function () {
-  vidRescale();
-});
+exports.default = Video;
 
 /***/ }),
 /* 376 */

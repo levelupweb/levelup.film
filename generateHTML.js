@@ -10,7 +10,7 @@ const generateHTML = (html, helmet) =>
     <meta name="theme-color" content="#ffffff" />
     <link rel="manifest" href="${dist}/manifest.json" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=cyrillic" rel="stylesheet" />
-
+    <script src="https://www.youtube.com/player_api"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="${dist}/css/bundle.css" />
     <link rel="stylesheet" href="${dist}/css/flexboxgrid.css" />
@@ -45,6 +45,7 @@ const generateHTML = (html, helmet) =>
       ${html}
     </noscript>
     <div id="root"></div>
+
     <script src="${dist}/bundle.js"></script>
    
   </body>
