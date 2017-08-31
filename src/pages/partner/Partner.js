@@ -34,7 +34,7 @@ const partnerFormFields = [{
 	}, {
 		fieldName: 'Город',
 		placeholder: 'Город',
-		name: 'userPhone',
+		name: 'userCity',
 		type: 'text'
 	}, {
 		fieldName: 'Сообщение',
@@ -49,8 +49,19 @@ const partnerModalConfiguration = {
 	content: 'Заполните форму и мы скоро с вами свяжемся! Не забудьте указать реальные контактные данные, чтобы мы могли написать вам ответ'
 }
 
+const contactFormRules = {
+	userName: ['required'],
+	userEmail: ['required', 'email'],
+	userPhone: ['required', 'mobile'],
+	userPortfolio: ['required', 'url'],
+	userSpec: ['required'],
+	userCity: ['required'],
+	userMessage: ['required']
+}
+
 const renderPartnerForm = () => <ContactForm 
 	isFluid={true} 
+	rules={contactFormRules}
 	fields={partnerFormFields} />
 
 const Partner = props => {
