@@ -1,21 +1,48 @@
-export default new function() {
-	const config = this;
+const dev = process.env.DEV === 'true';
+const ssl = process.env.SSL === 'true';
+const port = process.env.PORT;
+const type = ssl ? 'https://' : 'http://';
+const domain = type + (dev ? (`localhost:${port}`) : process.env.URL);
+const staticfolder = '/dist';
+const staticaddr = domain + staticfolder;
+const host = dev ? '127.0.0.1' : process.env.IP;
+const hosturl = type + host;
+const sender = process.env.SENDER;
+const receiever = process.env.RECEIEVER;
+const smtpuser = process.env.SMTP_LOGIN;
+const smtppassword = process.env.SMTP_PASSWORD;
+const emailurl = `${domain}/send`;
+const smtphost = process.env.SMTP_HOST;
+const contactposturl = '/email/contact';
+const partnerposturl = '/email/partner';
 
-	this.dev = true;
-	this.ssl = false;
-	this.port = "3090";
-	this.staticFolder = "/dist"
-	this.type = this.ssl ? "https://" : "http://";
-	this.domain = this.type + (this.dev ? "localhost:" + this.port : "film.levelupworlds.com");
-	this.staticURL = this.domain + this.staticFolder;
-	this.host = this.dev ? "185.22.232.114" : "127.0.0.1";
-	this.hosturl = this.type + this.host;
-	this.sitename = "Levelup Film";
-	this.token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJmaWxtLmxldmVsdXB3b3JsZHMuY29tIiwiaWF0IjoxNTAzODQwNzgzLCJleHAiOjE1MzUzNzY3ODMsImF1ZCI6ImZpbG0ubGV2ZWx1cHdvcmxkcy5jb20iLCJzdWIiOiI3MzI4NTc2MSIsImFwcGxpY2F0aW9uX2lkIjoiNzMyODU3NjEifQ.8TCUlRX7T8c89RsuuWzMbnXUg0HAgSNXAEBrYPpL5J0";
-	this.mail = new function() {
-		this.port = "3080";
-		this.sendURL = config.hosturl + ':' + this.port + '/send';
-		this.who = "Марина из Levelup Film";
-		this.to = "beatzhitta@gmail.com";
-	}
+module.exports.server = {
+  dev,
+  ssl,
+  port,
+  domain,
+  static: staticfolder,
+  hosturl,
+  smtpuser,
+  smtppassword,
+  smtphost,
+  contactposturl,
+  partnerposturl,
+  mail: {
+    sender,
+    receiever,
+  },
 };
+
+module.exports.client = {
+  dev,
+  ssl,
+  port,
+  emailurl,
+  contactposturl,
+  partnerposturl,
+  domain,
+  static: staticaddr,
+  hosturl,
+};
+

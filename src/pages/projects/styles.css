@@ -1,0 +1,60 @@
+.project {
+	margin-bottom:20px;
+	background:#111;
+}
+
+.project:last-child {
+	margin-bottom:0;
+}
+
+.project-wrapper {
+	position: absolute;
+	left:0px;
+	top:0px;
+	height:100%;
+	width:100%;
+	background:transparent;
+	z-index:20;
+}
+
+.project-video {
+	margin:20px 0;
+	position:relative;
+	overflow:hidden;
+}
+
+.project-video .project-title {
+	position: absolute;
+	left:20px;
+	bottom:20px;
+	right:20px;
+	transition:0.2s all ease;
+}
+
+.project-meta {
+	position: absolute;
+	top:20px;
+	left:20px;
+	right:20px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	transition:0.2s all ease;
+}
+
+.project-meta span {
+	color:#555;
+	font-weight:100;
+}
+
+.project.playing .project-wrapper {
+	z-index:-10;
+}
+
+.project.playing .project-meta {
+	top:-100%;
+}
+
+.project.playing .project-title {
+	bottom:-100%;
+}
