@@ -21,7 +21,7 @@
     "youtube-player": "^5.5.0"
   },
   "scripts": {
-    "production": "sudo forever run.js &",
+    "production": "sudo pm2 start run.js --name='film.levelupworlds.com",
     "server": "nodemon run.js",
     "dev": "webpack --watch",
     "build": "webpack"
