@@ -9,7 +9,7 @@ const Socials = () =>
 			</a>
 		</div>
 		<div className="social instagram">
-			<a href="https://www.instagram.com/levelup.film/" target="_blank">
+			<a href="https://www.instagram.com/film.levelup/" target="_blank">
 				<i className="fa fa-instagram"></i>
 			</a>
 		</div>

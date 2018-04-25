@@ -4,6 +4,7 @@ const playerDefaults = {
   modestbranding: 0, 
   rel: 0, 
   showinfo: 0, 
+  loop: 1,
   controls: 0, 
   disablekb: 1, 
   enablejsapi: 0, 
@@ -16,7 +17,6 @@ export default class Video {
     this.screen = screen;
     this.videoId = videoId;
     this.id = id;
-    this.onStateChange = this.onStateChange.bind(this)
     this.play = this.play.bind(this);
     this.createPlayer = this.createPlayer.bind(this);
     this.rescale = this.rescale.bind(this)
@@ -45,6 +45,12 @@ export default class Video {
         document.getElementById(this.id).classList.add('active');
       });
     this.player.mute();
+
+    this.player.on("stateChange", (e) => {
+      if (e.data === YT.PlayerState.ENDED) {
+          this.player.playVideo(); 
+      }
+    })
   }
 
   rescale() {
@@ -57,16 +63,6 @@ export default class Video {
       this.player.setSize(w, w/16*9);
     } else {
       this.player.setSize(h/9*16, h);
-    }
-  }
-
-  onStateChange(e) {
-    const tv1 = document.getElementById(this.id)
-    if (e.data === 1){
-      tv1.classList.add('active');
-    } else if (e.data === YT.PlayerState.ENDED) {
-      tv1.classList.remove('active');
-      this.play();
     }
   }
 }
