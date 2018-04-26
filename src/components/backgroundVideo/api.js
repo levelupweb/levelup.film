@@ -12,34 +12,29 @@ const playerDefaults = {
 };
 
 export default class Video {
-  constructor(videoId, id, screen) {
+  constructor(options, id, screen) {
     this.player = null;
     this.screen = screen;
-    this.videoId = videoId;
+    this.options = options;
     this.id = id;
     this.play = this.play.bind(this);
     this.createPlayer = this.createPlayer.bind(this);
-    this.rescale = this.rescale.bind(this)
-    this.videoSettings = {
-      'videoId': videoId, 
-      'startSeconds': 18, 
-      'suggestedQuality': 'hd720'
-    }
+    this.rescale = this.rescale.bind(this);
   }
 
   init() {
-    this.createPlayer(playerDefaults);
+    this.createPlayer();
     this.rescale();
     this.play();
   }
 
-  createPlayer(options) {
+  createPlayer() {
     const yt = require("youtube-player");
-    this.player = yt(this.id, this.videoSettings);
+    this.player = yt(this.id, {...playerDefaults, ...this.options});
   }
 
   play() {
-    this.player.loadVideoById(this.videoId);
+    this.player.loadVideoById({...playerDefaults, ...this.options});
     this.player.playVideo()
       .then(() => {
         document.getElementById(this.id).classList.add('active');
@@ -48,7 +43,8 @@ export default class Video {
 
     this.player.on("stateChange", (e) => {
       if (e.data === YT.PlayerState.ENDED) {
-          this.player.playVideo(); 
+          this.player.playVideo({...playerDefaults, ...this.options}); 
+          this.player.seekTo(this.options.startSeconds);
       }
     })
   }
